@@ -1,0 +1,48 @@
+criar um repositório no git
+
+abrir o vs code em uma pasta
+
+abrir o terminal (ctrl + ")
+
+git clone (link do repositorio do git)
+
+abrir vs code na pasta que foi gerado pelo git
+
+ctrl + "
+
+npm init -y
+
+no packj.json colocar ou seja ajustar
+	
+  {
+  "name": "receitas_3c_back",
+  "version": "1.0.0",
+  "main": "serve.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --watch serve.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
+
+npm i fastify
+
+codigos no js
+
+import Fastify from 'fastify'
+
+const servidor = Fastify()
+
+servidor.get('/usuarios', () => {
+    return 'Está funcionando!'
+})
+
+servidor.listen({
+    port: 3000
+})
+
+npm start
