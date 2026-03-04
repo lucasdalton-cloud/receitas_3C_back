@@ -46,3 +46,7 @@ servidor.listen({
 })
 
 npm start
+
+git add .
+git commit -m"Mensagem só para falar a alteração"
+git push

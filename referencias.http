@@ -1,3 +1,23 @@
 ###
 
 GET http://localhost:3000/usuarios
+
+###
+
+POST http://localhost:3000/usuarios
+Content-Type: application/json
+
+{
+    "nome": "Vinicius",
+    "senha": "12345"
+}
+
+###
+
+PUT http://localhost:3000/usuarios/1
+Content-Type: application/json
+
+{
+    "nome": "xande",
+    "senha": "dark"
+}
