@@ -1,64 +1,17 @@
-criar um repositório no git
+<h1>Aprendendo FETCH</h1>
+<button onclick="renderizarUsuarios()">Buscar</button>
+<br>
 
-abrir o vs code em uma pasta
+<input type="text" id="nome" placeholder="Digite seu nome">
+<input type="text" id="email" placeholder="Digite seu email">
+<input type="text" id="senha" placeholder="Digite sua senha">
 
-abrir o terminal (ctrl + ")
+<button onclick="cadastrarUsuario()">SALVAR</button>
 
-git clone (link do repositorio do git)
+<br>
+<br>
 
-abrir vs code na pasta que foi gerado pelo git
-
-ctrl + "
-
-npm init -y
-
-no packj.json colocar ou seja ajustar
-	
-  {
-  "name": "receitas_3c_back",
-  "version": "1.0.0",
-  "main": "serve.js",
-  "type": "module",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --watch serve.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": ""
-}
-
-npm i fastify
-
-npm i pg
-
-codigos no js
-
-import Fastify from 'fastify'
-
-const servidor = Fastify()
-
-servidor.listen({
-    port: 3000
-})
-
-npm start
-( LEMBRE-SE DE CRIAR O .gitignore e colocar node_modules/ para que essa pasta não seja commitada )
-git add .
-git commit -m"Mensagem só para falar a alteração"
-git push
-
-
-
-
-SELECT * FROM USUARIOS WHERE email = $1 AND senha = $2
-
-"isso vai retornar um array com 1 elemento se o usuario"
-"estiver cadastrado se não vai retornar um array vazio"
-
-
-
+<div id="listar-usuarios"></div>
 
 <script>
     async function buscarUsuarios() {
@@ -82,8 +35,6 @@ SELECT * FROM USUARIOS WHERE email = $1 AND senha = $2
 
     }
 
-    renderizarUsuarios();
-
     async function cadastrarUsuario() {
         const nome = document.getElementById('nome').value;
         const email = document.getElementById('email').value;
@@ -95,7 +46,7 @@ SELECT * FROM USUARIOS WHERE email = $1 AND senha = $2
         }
 
         await fetch('http://localhost:3000/usuarios', {
-            method: "POST",
+            method: 'POST',
             body: JSON.stringify({nome, email, senha}),
             headers: {"Content-Type": "application/json"}
         })
